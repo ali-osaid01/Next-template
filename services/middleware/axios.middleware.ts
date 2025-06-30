@@ -3,15 +3,11 @@ import { getAccessToken } from "@/utils/helper";
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import { deleteCookie } from "cookies-next/client";
 import { toast } from "sonner";
+import { ApiResponse } from "../interface";
 
 interface RequestConfig extends AxiosRequestConfig {}
 
-interface ApiResponse<T = any> {
-  data: T;
-  status: number;
-  statusText: string;
-  headers: any;
-}
+
 
 class AxiosService {
   private client: AxiosInstance;
@@ -66,7 +62,7 @@ class AxiosService {
     return {
       data: response.data,
       status: response.status,
-      statusText: response.statusText,
+      success: response.status < 300,
       headers: response.headers,
     };
   }

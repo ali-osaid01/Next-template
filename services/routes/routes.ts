@@ -5,6 +5,7 @@ class Routes {
       register: '/auth/register',
       logout: '/auth/logout',
       refreshToken: '/auth/refresh',
+      me: '/auth/me',
     };
   
     static Users = {
